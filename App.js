@@ -39,11 +39,11 @@ const CadastroUm = ({ navigation }) => {
 			<Button 
 			  title='Entrar'
 			  color='#1b4'
-        onPress={()=> navigation.navigate('CadFuncao')}
 			/>
 			<Button 
 			 title='Cadastrar-se'
 			color='#1b4'
+      onPress={()=> navigation.navigate('CadFuncao')}
 			/>	
 		</View>
 	);
