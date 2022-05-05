@@ -9,17 +9,17 @@ const Funcao = ({ funcao }) => {
       </TouchableOpacity>
     );
   };
-  const CadFuncao = () => {
-    return (
-      <SafeAreaView style={ styles.funcaoContainer }>
-        <View style={ styles.container}>
-          <View style={ styles.funcaoParent }>
-            <Funcao funcao={'Paciente'} />
-            <Funcao funcao={'Acompanhante'} />
-          </View>
+const CadFuncao = () => {
+  return (
+    <SafeAreaView style={ styles.funcaoContainer }>
+      <View style={ styles.container}>
+        <View style={ styles.funcaoParent }>
+          <Funcao funcao={'Paciente'} />
+          <Funcao funcao={'Acompanhante'} />
         </View>
-      </SafeAreaView>
-    );
-  };
+      </View>
+    </SafeAreaView>
+  );
+};
 
   export default CadFuncao;

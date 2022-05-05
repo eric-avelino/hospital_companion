@@ -2,7 +2,7 @@ import { Button, Text, View, TextInput } from 'react-native';
 import React from 'react';
 import styles from '../../styles'
 
-const CadastroUm = ({ navigation }) => {
+const Entrar = ({ navigation }) => {
 	return(
 		<View style={ styles.container }>
 			<Text style={ styles.textCadastro }>Email</Text>
@@ -21,9 +21,9 @@ const CadastroUm = ({ navigation }) => {
 			<Button 
 			 title='Cadastrar-se'
 			color='#1b4'
-      onPress={()=> navigation.navigate('CadFuncao')}
+      onPress={()=> navigation.navigate('CadastroUm')}
 			/>	
 		</View>
 	);
 }
-export default CadastroUm;
+export default Entrar;

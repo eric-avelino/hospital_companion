@@ -11,7 +11,7 @@ const PaginaInicial = ({ navigation }) => {
             style={styles.image}
             source={require('../../../assets/logo.png')} />
           <Button
-      onPress={() => navigation.navigate('CadastroUm')}
+      onPress={() => navigation.navigate('Entrar')}
             title='Entrar'
             color='#1b4'
             />
