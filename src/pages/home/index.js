@@ -18,9 +18,7 @@ function Home (){
     <NavigationContainer>
         <Stack.Navigator>
           {user ? (
-            <Stack.Screen name='PaginaInicial' options={{ title: 'Hospital Companion' }}>
-              { (user) => <PaginaInicial user={ user } />}
-            </Stack.Screen>
+            <Stack.Screen name='HomePage' user={ user } component={ HomePage } options={{ title: 'Home Page' }} />
           ): (
             <>
               <Stack.Screen name='PaginaInicial' component={ PaginaInicial } options={{ title: 'Hospital Companion' }} />

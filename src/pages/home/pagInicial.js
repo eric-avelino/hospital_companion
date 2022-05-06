@@ -4,12 +4,8 @@ import React from 'react';
 import styles from '../../styles'
 
 
-const PaginaInicial = ({ navigation, user }) => {
+const PaginaInicial = ({ navigation }) => {
     return (
-      <>
-      { user ? (
-          navigation.navigate('HomePage')
-      ) : (
         <View style={styles.container}>
           <Image
           style={styles.image}
@@ -25,9 +21,7 @@ const PaginaInicial = ({ navigation, user }) => {
             >Entrar como convidado</Text>
           <StatusBar style="auto" />
         </View>
-        )}
-      </>
-      );
+        );
 }
 
 export default PaginaInicial;

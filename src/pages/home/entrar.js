@@ -22,7 +22,7 @@ const Entrar = ({ navigation }) => {
 							return;
 						}
 						const user = firestoreDocument.data();
-						navigation.navigate('PaginaInicial', {user});
+						navigation.navigate('HomePage', {user});
 					})
 					.catch(error => {
 						console.log(error);
