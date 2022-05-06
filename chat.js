@@ -9,7 +9,7 @@ export default class Chat extends React.Component {
         return <GiftedChat />;
     }
 }
-export default class Chat extends React. Component { 
+export default class Chat extends React.Component { 
     static navigationoptions = ({ navigation }) => ({
         title: (navigation.state.params || {}).name || 'gozochat' });
     });
