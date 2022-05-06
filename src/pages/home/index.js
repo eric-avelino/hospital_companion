@@ -8,8 +8,7 @@ import QuemSomosNos from './quemSomos';
 import CadastroUm from '../cadastro/cadastroUm'
 import CadFuncao from '../cadastro/cadFuncao';
 import HomePage from './homePage';
-import Chat from '../chat';
-import { ScreenStack } from 'react-native-screens';
+// import Chat from '../chat';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +21,7 @@ function Home (){
           {user ? (
             <>
               <Stack.Screen name='HomePage' user={ user } component={ HomePage } options={{ title: 'Home Page' }} />
-              <Stack.Screen name='Chat' component={ Chat } options={{ title: 'Chat' }} />
+              <Stack.Screen name='Chat' options={{ title: 'Chat' }} />
             </>
           ): (
             <>

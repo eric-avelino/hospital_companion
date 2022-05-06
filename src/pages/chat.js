@@ -1,14 +1,7 @@
 import React from 'react';
 import { GiftedChat } from 'react-native-gifted-chat';
-
-
 import { firebase } from '../firebaseConnection';
 
-export default class Chat extends React.Component {
-    render() {
-        return <GiftedChat />;
-    }
-}
 export default class Chat extends React.Component { 
     static navigationoptions = ({ navigation }) => ({
         title: (navigation.state.params || {}.name || 'gozochat' )
@@ -20,9 +13,8 @@ export default class Chat extends React.Component {
     get user() { 
         return {
             name: this.props.navigation.state.params.name, 
-            email: this.props.navigation.state.params. 
-            email, avatar: this.props.navigation.state.params. avatar, 
-            id: firebase.uid, 
+            email: this.props.navigation.state.params.email, 
+            avatar: this.props.navigation.state.params. avatar, 
             id: firebase.uid
         };
     }
