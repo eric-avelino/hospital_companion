@@ -76,20 +76,20 @@ export default class Login extends React.Component {
     }
 const styles = StyleSheet.create({ 
     title: {
-        marginTop: 16, 
-        marginLeft: 16, 
-        fontsize: 16
+        marginTop: 216, 
+        marginLeft: 22, 
+        fontsize: 12
     },
     nameInput: {
-        height: 16 * 2, 
-        margin: 16, 
-        paddingHorizontal: 16, 
+        height: 14 * 2, 
+        margin: 14, 
+        paddingHorizontal: 18, 
         bordercolor: '#a4f',    
         borderWidth: 1, 
-        fontSize: 16
+        fontSize: 14
     },
     buttonText: {
-        marginLeft: 16, 
-        fontSize: 42
+        marginLeft: 18, 
+        fontSize: 40
     }
 });
