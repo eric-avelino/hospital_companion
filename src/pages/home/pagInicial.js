@@ -4,23 +4,29 @@ import React from 'react';
 import styles from '../../styles'
 
 
-const PaginaInicial = ({ navigation }) => {
+const PaginaInicial = ({ navigation, user }) => {
     return (
-       	<View style={styles.container}>
+      <>
+      { user ? (
+          navigation.navigate('HomePage')
+      ) : (
+        <View style={styles.container}>
           <Image
-            style={styles.image}
-            source={require('../../../assets/logo.png')} />
+          style={styles.image}
+          source={require('../../../assets/logo.png')} />
           <Button
-      onPress={() => navigation.navigate('Entrar')}
-            title='Entrar'
-            color='#1b4'
-            />
+          onPress={() => navigation.navigate('Entrar')}
+          title='Entrar'
+          color='#1b4'
+          />
           <Text 
             style={styles.textLink}
             onPress={() => navigation.navigate('QuemSomosNos')} 
-        >Entrar como convidado</Text>
+            >Entrar como convidado</Text>
           <StatusBar style="auto" />
         </View>
+        )}
+      </>
       );
 }
 
