@@ -17,7 +17,7 @@ const PaginaInicial = ({ navigation }) => {
           />
           <Text 
             style={styles.textLink}
-            onPress={() => navigation.navigate('QuemSomosNos')} 
+            onPress={() => navigation.navigate('AppPagInicial')} 
             >Entrar como convidado</Text>
           <StatusBar style="auto" />
         </View>
