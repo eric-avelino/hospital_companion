@@ -6,6 +6,7 @@ import { firebase } from '../../firebaseConnection';
 const Entrar = ({ navigation }) => {
 	const [email, setEmail] = useState('');
 	const [senha,  setSenha] = useState('');
+	const [username, setUsername] = useState('');
 	const onEntrarPress = () => {
 		firebase
 			.auth()
@@ -22,7 +23,7 @@ const Entrar = ({ navigation }) => {
 							return;
 						}
 						const user = firestoreDocument.data();
-						navigation.navigate('HomePage', {user});
+						navigation.navigate('AppPagInicial', user['nome']);
 					})
 					.catch(error => {
 						console.log(error);

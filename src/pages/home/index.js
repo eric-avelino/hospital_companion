@@ -19,7 +19,7 @@ function Home (){
     <NavigationContainer>
         <Stack.Navigator>
           {user ? (
-            <Stack.Screen name='HomePage' user={ user } component={ HomePage } options={{ title: 'Home Page' }} />
+            <Stack.Screen name='AppPagInicial' component={ AppPagInicial } options={{ title: 'Página Inicial' }} />
           ): (
             <>
               <Stack.Screen name='PaginaInicial' component={ PaginaInicial } options={{ title: 'Hospital Companion' }} />

@@ -1,14 +1,16 @@
 import React from 'react';
-import { Text, View, FlatList, Button, Image, TouchableOpacity, Touchable } from "react-native";
+import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
 import styles from '../../styles';
 
-const AppPaginaInicial = function ({ navigation }) {
+const AppPaginaInicial = function ({ route, navigation }) {
+    const username = route.params;
+    console.log(route.params);
     return (
         <View className={"tela"} style={styles.appTela}>
             <View className={"Sidebar"} style={styles.sidebar}>
                 <View style={[styles.sidebar, styles.sidebarHeader]}>
                     <Image style={[styles.sidebar, styles.profilePic]}/>
-                    <Text style={[styles.sidebar, styles.sidebarHeader, styles.textName]}>Nome</Text>
+                    <Text style={[styles.sidebar, styles.sidebarHeader, styles.textName]}>{username}</Text>
                     <Text style={[styles.sidebar, styles.sidebarHeader, styles.textFuncao]}>Paciente</Text>
                 </View>
 
