@@ -3,25 +3,25 @@ import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
 import styles from '../../styles';
 
 const AppPaginaInicial = function ({ route, navigation }) {
-    const username = route.params;
+    const params = route.params;
     console.log(route.params);
     return (
         <View className={"tela"} style={styles.appTela}>
             <View className={"Sidebar"} style={styles.sidebar}>
                 <View style={[styles.sidebar, styles.sidebarHeader]}>
                     <Image style={[styles.sidebar, styles.profilePic]}/>
-                    <Text style={[styles.sidebar, styles.sidebarHeader, styles.textName]}>{username}</Text>
-                    <Text style={[styles.sidebar, styles.sidebarHeader, styles.textFuncao]}>Paciente</Text>
+                    <Text style={[styles.sidebar, styles.sidebarHeader, styles.textName]}>{params.username}</Text>
+                    <Text style={[styles.sidebar, styles.sidebarHeader, styles.textFuncao]}>{params.funcao}</Text>
                 </View>
 
                 <FlatList
                     data={[
                         { key: 'Página inicial', anchor: '' },
-                        { key: 'CHAT', anchor: '' },
+                        { key: 'CHAT', anchor: 'Chat' },
                         { key: 'Quem somos', anchor: 'QuemSomosNos' },
                         { key: 'Fale conosco', anchor: '' },
                     ]}
-                    renderItem={({ item }) => <TouchableOpacity style={styles.item} onPress={()=>navigation.navigate(item.anchor)}>{item.key}</TouchableOpacity>}
+                    renderItem={({ item }) => <TouchableOpacity style={styles.item} onPress={()=>navigation.navigate(item.anchor, params)}>{item.key}</TouchableOpacity>}
                 />
                 <View className={'config'}>
                     <FlatList

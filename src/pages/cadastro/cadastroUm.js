@@ -27,7 +27,7 @@ const CadastroUm = ( { navigation } ) => {
 						.set(data)
 						.then(() => {
 							// alert("DONE");
-							navigation.navigate('Entrar');
+							navigation.navigate('CadFuncao', nome);
 						})
 						.catch((error) => {
 							alert(error);
