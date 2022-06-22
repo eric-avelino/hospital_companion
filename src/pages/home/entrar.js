@@ -1,4 +1,4 @@
-import { Button, Text, View, TextInput } from 'react-native';
+import { Button, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import styles from '../../styles';
 import { firebase } from '../../firebaseConnection';
@@ -51,16 +51,12 @@ const Entrar = ({ navigation }) => {
 				onChangeText = { (text) => setSenha(text) }
 				value = { senha }
 				secureTextEntry={true}/>
-			<Button 
-				title='Entrar'
-				color='#1b4'
-				onPress={ onEntrarPress }
-			/>
-			<Button 
-				title='Cadastrar-se'
-				color='#1b4'
-				onPress={ () => navigation.navigate('CadastroUm') }
-			/>	
+			<TouchableOpacity style={[styles.agendarButton, {width: '45%'}]} onPress={() => onEntrarPress()}>
+				<Text style={{color: 'white'}}>Entrar</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={[styles.agendarButton]} onPress={() => navigation.navigate('CadastroUm')}>
+				<Text style={{color: 'white'}}>Cadastrar-se</Text>
+			</TouchableOpacity>
 		</View>
 	);
 }

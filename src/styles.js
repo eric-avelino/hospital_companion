@@ -1,16 +1,20 @@
 import { StyleSheet } from 'react-native';
 
+const palette = {
+    background: '#eefffd'
+}
+
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#eefffd',
+        backgroundColor: palette.background,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 0,
         fontWeight: "bold",
         fontSize: 20,
         color: "black",
-        fontFamily: "Arial"
+        // fontFamily: "Arial"
     },
     image: {
         width: 500,
@@ -21,14 +25,14 @@ export default StyleSheet.create({
         marginTop: '1%',
         marginBottom: '1%',
         fontWeight: 'bold',
-        alignText: 'left',
+        alignItems: 'flex-start',
     },
     inputCadastro: {
     	marginTop: '1%',
         marginBottom: '1%',
         borderWidth: 1,
         padding: 10,
-        alignText: 'center',
+        alignItems: 'center',
     },
     textTitulo: {
         fontWeight: 'bold',
@@ -37,6 +41,7 @@ export default StyleSheet.create({
     },
     textLink: {
         color: '#888',
+        marginBottom: 20
     },
     funcaoContainer: {
         flex: 1,
@@ -49,30 +54,35 @@ export default StyleSheet.create({
     },
     funcaoButton: {
         backgroundColor: "#ddd",
-        padding: 18,
         borderWidth: 5,
+        justifyContent: 'center',
+        marginHorizontal: 5,
         alignItems: 'center',
-        padding: 10,
-        width: "80%",
-        height: 50,
+        width: "30%",
+        height: 70,
     },
-    item: {
-        width: "300px",
+    navItem: {
+        width: "100%",
         color: "white",
-        marginTop: "10px",
+        fontWeight: "bold",
+        marginTop: 5,
         paddingTop: 20,
-        paddingBottom: 20,
-        paddingLeft: 10
+        // paddingBottom: 20,
+        // paddingLeft: 10
+    },
+    navButtons: {
+        
     },
     sidebarHeader: {
         color: "white",
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 10,
+        // paddingTop: 10,
+        // paddingBottom: 10,
+        // paddingLeft: 10,
     },
     sidebar: {
         backgroundColor: "#4ABDAE",
-        fontFamily: "Arial",
+        width: "40%",
+        // fontFamily: "Arial",
         textAlign: "center",
         alignItems: "center",
         fontWeight: "bold"
@@ -81,7 +91,7 @@ export default StyleSheet.create({
         width: 100,
         height: 100,
         backgroundColor: "#6dd",
-        borderRadius: "50%"
+        borderRadius: 50
     },
     picFeed: {
         width: 50,
@@ -93,23 +103,28 @@ export default StyleSheet.create({
         backgroundColor: "#6dd"
     },
     textName: {
-        fontSize: 20
+        fontSize: 15,
+        width: "100%"
     },
     textFuncao: {
-        fontSize: 15,
+        fontSize: 10,
         color: "#6da",
-        fontWeight: "normal"
+        fontWeight: "normal",
+        width: "100%"
     },
     feedButtons: {
         display: "flex",
-        backgroundColor: "#eefffd",
+        backgroundColor: palette.background,
+        width: "95%",
+        alignSelf: "flex-start",
         flexDirection: "row",
     },
     caixaRecom: {
         borderStyle: "solid",
-        borderColor: "black",
+        borderBottomWidth: 3,
+        borderColor: "#CCC",
         width: "100%",
-        borderWidth: 3
+        paddingLeft: 5
     },
     caixaRecomCabecalho: {
         display: "flex",
@@ -125,21 +140,21 @@ export default StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         height: "100%",
-        padding: "5px"
+        // padding: 5
     },
     recButton: {
-        backgroundColor: "eefffd",
+        backgroundColor: palette.background,
         paddingVertical: 10,
         paddingHorizontal: 10
     },
     agendarButton: {
         backgroundColor: "#4ABDAE",
         marginHorizontal: "10%",
+        marginTop: 5,
         alignItems: "center",
-        color: "white",
-        width: 500,
+        width: '35%',
         alignSelf: "center",
-        paddingHorizontal: 10,
-        paddingVertical: 30
+        paddingHorizontal: 3,
+        paddingVertical: 25
     }
   });
