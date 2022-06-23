@@ -24,8 +24,13 @@ const Entrar = ({ navigation }) => {
 						}
 						const user = firestoreDocument.data();
 						let username = user['nome'];
-						let funcao = "Funcao";
-						navigation.navigate('AppPagInicial', { username, funcao });
+						let funcao = user['funcao'];
+						if(funcao == "Paciente"){
+							navigation.navigate('AppPagInicialPa', { username, funcao });
+						}
+						else{
+							navigation.navigate('AppPagInicialAc', { username, funcao });
+						}
 					})
 					.catch(error => {
 						console.log(error);

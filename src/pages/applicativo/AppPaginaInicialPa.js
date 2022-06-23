@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
 import styles from '../../styles';
 
-const AppPaginaInicial = function ({ route, navigation }) {
+const AppPaginaInicialPa = function ({ route, navigation }) {
     const params = route.params;
     console.log(route.params);
     return (
@@ -61,4 +61,4 @@ const AppPaginaInicial = function ({ route, navigation }) {
     );
 }
 
-export default AppPaginaInicial;
+export default AppPaginaInicialPa;

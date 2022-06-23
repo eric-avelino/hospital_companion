@@ -18,7 +18,8 @@ const CadastroUm = ( { navigation } ) => {
 					const data = {
 						id: uid,
 						email,
-						nome
+						nome,
+						funcao: 'funcao'
 					};
 					const userRef = firebase.firestore().collection('users');
 					// alert("UID: " + uid + "\nDATA: \n\rID:" + data.id + "\n\rEMAIL: " + data.email + "\n\rNOME: " + data.nome);
@@ -27,7 +28,7 @@ const CadastroUm = ( { navigation } ) => {
 						.set(data)
 						.then(() => {
 							// alert("DONE");
-							navigation.navigate('CadFuncao', nome);
+							navigation.navigate('CadFuncao', {uid, nome});
 						})
 						.catch((error) => {
 							alert(error);
