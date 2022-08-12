@@ -18,6 +18,7 @@ const AppPaginaInicialPa = function ({ route, navigation }) {
                         data={[
                             { key: 'Página inicial', anchor: '' },
                             { key: 'CHAT', anchor: 'Chat' },
+                            { key: 'Dados pessoais', anchor: 'DadosPessoais'},
                             { key: 'Quem somos', anchor: 'QuemSomosNos' },
                             { key: 'Fale conosco', anchor: '' },
                             { key: 'Notificações', anchor: '' },
@@ -54,7 +55,7 @@ const AppPaginaInicialPa = function ({ route, navigation }) {
                     </View>}
                 />
                 <TouchableOpacity style={[styles.agendarButton]}>
-                    <Text style={{color: 'white'}}>AGENDAR</Text>
+                    <Text style={[{color: 'white'}, {fontWeight: "bold"}]}>AGENDAR</Text>
                 </TouchableOpacity>
             </View>
         </View>

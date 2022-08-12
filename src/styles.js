@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 const palette = {
-    background: '#eefffd'
+    background: '#eefffd',
+    borders: "#CCC",
 }
 
 export default StyleSheet.create({
@@ -122,7 +123,7 @@ export default StyleSheet.create({
     caixaRecom: {
         borderStyle: "solid",
         borderBottomWidth: 3,
-        borderColor: "#CCC",
+        borderColor: palette.borders,
         width: "100%",
         paddingLeft: 5
     },
@@ -156,5 +157,16 @@ export default StyleSheet.create({
         alignSelf: "center",
         paddingHorizontal: 3,
         paddingVertical: 25
-    }
+    },
+    map : {
+        width: 300,
+        height: 300
+    },
+    dadosPessoais: {
+        display: "flex",
+        borderBottomColor: palette.borders,
+        borderBottomWidth: 2,
+        borderStyle: "solid",
+        flexDirection: "column"
+    },
   });

@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import {  Text, View, Image, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../../styles';
 
 
 const PaginaInicial = ({ navigation }) => {
+  // const [convidadoTolken, setConvidadoTolken] = useState('');
+  const convidadoTolken = "qweQj4giRJSdMNzB8g1XIa6t3YtRIHPH";
     return (
         <View style={styles.container}>
           <Image
@@ -18,7 +20,9 @@ const PaginaInicial = ({ navigation }) => {
           </TouchableOpacity>
           <Text 
             style={styles.textLink}
-            onPress={() => navigation.navigate('CadFuncao', 'Convidado')} 
+            onPress={() => {
+              navigation.navigate('CadFuncao', {uid: convidadoTolken, nome: "Convidado"});
+            }} 
             >Entrar como convidado</Text>
           <StatusBar style="auto" />
         </View>

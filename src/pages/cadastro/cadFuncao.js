@@ -3,9 +3,11 @@ import React from 'react';
 import styles from '../../styles';
 import { firebase } from '../../firebaseConnection';
 
+const convidadoTolken = "qweQj4giRJSdMNzB8g1XIa6t3YtRIHPH";
+
 const Funcao = ({ funcao, username, navigation, uid }) => {
   const addFuncao = (funcao, uid, username, navigation) => {
-    if(firebase.app.length){
+    if(firebase.app.length && uid != convidadoTolken){
       const userRef = firebase.auth().currentUser
       userRef.updateProfile({funcao: funcao}).then(()=> {
         console.log("Updated funcao");
@@ -18,13 +20,16 @@ const Funcao = ({ funcao, username, navigation, uid }) => {
             funcao: funcao,
           },
           { merge: true });
+          navigation.navigate("CadastroDois", {uid, username});
+        });
+      }
+      else if(uid == convidadoTolken){
         if(funcao == "Paciente"){
           navigation.navigate("AppPagInicialPa", {username, funcao});
         }
         else{
           navigation.navigate("AppPagInicialAc", {username, funcao});
         }
-      })
     }
   }
   return (
@@ -35,6 +40,8 @@ const Funcao = ({ funcao, username, navigation, uid }) => {
 };
 const CadFuncao = ({ route, navigation }) => {
   const params = route.params;
+  console.log(params);
+
   return (
     <SafeAreaView style={styles.funcaoContainer}>
       <View style={styles.container}>

@@ -57,10 +57,10 @@ const Entrar = ({ navigation }) => {
 				value = { senha }
 				secureTextEntry={true}/>
 			<TouchableOpacity style={[styles.agendarButton, {width: '45%'}]} onPress={() => onEntrarPress()}>
-				<Text style={{color: 'white'}}>Entrar</Text>
+				<Text style={[{color: 'white'}, {fontWeight: "bold"}]}>Entrar</Text>
 			</TouchableOpacity>
 			<TouchableOpacity style={[styles.agendarButton]} onPress={() => navigation.navigate('CadastroUm')}>
-				<Text style={{color: 'white'}}>Cadastrar-se</Text>
+				<Text style={[{color: 'white'}, {fontWeight: "bold"}]}>Cadastrar-se</Text>
 			</TouchableOpacity>
 		</View>
 	);

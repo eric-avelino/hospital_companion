@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Button } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import styles from "../../styles";
 import React, { useState } from "react";
 import { firebase } from "../../firebaseConnection";
@@ -19,7 +19,11 @@ const CadastroUm = ( { navigation } ) => {
 						id: uid,
 						email,
 						nome,
-						funcao: 'funcao'
+						funcao: 'x',
+						cpf: 'x',
+						endereco: 'x',
+						dataNascimento: 'x',
+						genero: 'x',
 					};
 					const userRef = firebase.firestore().collection('users');
 					// alert("UID: " + uid + "\nDATA: \n\rID:" + data.id + "\n\rEMAIL: " + data.email + "\n\rNOME: " + data.nome);
@@ -41,32 +45,34 @@ const CadastroUm = ( { navigation } ) => {
 	}
     return(
         <View style={ styles.container }>
-		<Text
-	    	style={ styles.textCadastro }>Nome</Text>
-	    	<TextInput
-	    	style={ styles.inputCadastro }
-	    	placeholder='Digite seu nome.'
+			<Text
+				style={ styles.textCadastro }>Nome</Text>
+			<TextInput
+			style={ styles.inputCadastro }
+			placeholder='Digite seu nome.'
 			onChangeText={ (text) => setNome(text)}
 			value = { nome }></TextInput>
-		<Text
-	    	style={ styles.textCadastro }>Email</Text>
-	    	<TextInput
-	    	style={ styles.inputCadastro }
-	    	placeholder='Digite seu email.'
+			<Text
+				style={ styles.textCadastro }>Email</Text>
+			<TextInput
+			style={ styles.inputCadastro }
+			placeholder='Digite seu email.'
 			onChangeText={ (text) => setEmail(text)}
 			value = { email }></TextInput>
-		<Text
-	    	style={ styles.textCadastro }>Senha</Text>
+			<Text
+				style={ styles.textCadastro }>Senha</Text>
 	    	<TextInput
 			secureTextEntry={true}
 	    	style={ styles.inputCadastro }
 	    	placeholder='Digite sua senha.'
 			onChangeText={(text) => setSenha(text)}
 			value = { senha }></TextInput>
-	    	<Button
-	    	title='Cadastrar-se'
-	    	color='#1b4'
-			onPress={ onCadastrarPress }/>
+
+			<TouchableOpacity
+				style={styles.agendarButton}
+				onPress={ onCadastrarPress }>
+				<Text style={[{color: "white"}, {fontWeight: "bold"}]}>Cadastrar-se</Text>
+			</TouchableOpacity>
         </View>
     );
 };

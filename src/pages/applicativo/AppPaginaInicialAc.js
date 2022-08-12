@@ -1,10 +1,19 @@
 import React from 'react';
 import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import styles from '../../styles';
 
 const AppPaginaInicialAc = function ({ route, navigation }) {
     const params = route.params;
     console.log(route.params);
+
+    const initialRegion = {
+        latitude: 49.2576508,
+        longitude: -123.2639868,
+        latitudeDelta: 100,
+        longitudeDelta: 100,
+    };
+
     return (
         <View className={"tela"} style={styles.appTela}>
             <View className={"Sidebar"} style={styles.sidebar}>
@@ -18,6 +27,7 @@ const AppPaginaInicialAc = function ({ route, navigation }) {
                         data={[
                             { key: 'Página inicial', anchor: '' },
                             { key: 'CHAT', anchor: 'Chat' },
+                            { key: 'Dados pessoais', anchor: 'DadosPessoais'},
                             { key: 'Quem somos', anchor: 'QuemSomosNos' },
                             { key: 'Fale conosco', anchor: '' },
                             { key: 'Notificações', anchor: '' },
@@ -30,7 +40,12 @@ const AppPaginaInicialAc = function ({ route, navigation }) {
                 </View>
             </View>
             <View className={"Conteudo"} style={styles.container}>
-                
+                <MapView
+                    provider={PROVIDER_GOOGLE}
+                    style={styles.map}
+                    initialRegion={initialRegion}>
+
+                </MapView>
             </View>
         </View>
     );
