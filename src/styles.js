@@ -101,7 +101,7 @@ export default StyleSheet.create({
     feedPreview: {
         width: 200,
         height: 100,
-        backgroundColor: "#6dd"
+        // backgroundColor: "#6dd"
     },
     textName: {
         fontSize: 15,
@@ -160,7 +160,8 @@ export default StyleSheet.create({
     },
     map : {
         width: 300,
-        height: 300
+        height: 300,
+        margin: 5
     },
     dadosPessoais: {
         display: "flex",
@@ -169,4 +170,9 @@ export default StyleSheet.create({
         borderStyle: "solid",
         flexDirection: "column"
     },
+    dadosButtons: {
+        display: "flex",
+        flexDirection: "row",
+        marginRight: 50
+    },  
   });

@@ -1,19 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import styles from '../../styles';
+import * as Location from "expo-location";
+import {firebase} from '../../firebaseConnection';
+
 
 const AppPaginaInicialAc = function ({ route, navigation }) {
     const params = route.params;
-    console.log(route.params);
-
     const initialRegion = {
         latitude: 49.2576508,
         longitude: -123.2639868,
         latitudeDelta: 100,
         longitudeDelta: 100,
     };
-
+    const [region, setRegion] = useState({ latitude: 0, longitude: 0, latitudeDelta: 0, longitudeDelta: 0 });
+    const getCurrentPosition = async () => {
+        let { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== "granted") {
+            Alert.alert("Permissão negada", "Localização não adquirida");
+        }
+        let {
+            coords: { latitude, longitude }
+        } = await Location.getCurrentPositionAsync();
+        setRegion({ latitude, longitude, latitudeDelta: 100, longitudeDelta: 100 });
+        if (firebase.app.length) {
+            const userRef = firebase.auth().currentUser;
+            firebase
+                .firestore()
+                .collection("users")
+                .doc(userRef.uid)
+                .update({
+                    coords: { latitude, longitude }
+                });
+        }
+    }
+    useEffect(() => {
+        getCurrentPosition();
+    },[]);
+    console.log(route.params);
     return (
         <View className={"tela"} style={styles.appTela}>
             <View className={"Sidebar"} style={styles.sidebar}>
