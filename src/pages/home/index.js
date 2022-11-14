@@ -7,6 +7,7 @@ import Entrar from './entrar';
 import QuemSomosNos from './quemSomos';
 import CadastroUm from '../cadastro/cadastroUm';
 import CadastroDois from '../cadastro/cadastroDois';
+import CadastroTres from '../cadastro/cadastroTres';
 import CadFuncao from '../cadastro/cadFuncao';
 import HomePage from './homePage';
 import AppPagInicialPa from '../applicativo/AppPaginaInicialPa';
@@ -37,6 +38,7 @@ function Home (){
               <Stack.Screen name='QuemSomosNos' component={ QuemSomosNos } options={{ title: 'Quem Somos Nós' }} />
               <Stack.Screen name='CadastroUm' component={ CadastroUm } options={ { title: 'Cadastro' } } />
               <Stack.Screen name='CadastroDois' component={ CadastroDois } options={ { title: 'Cadastro' } } />
+              <Stack.Screen name='CadastroTres' component={ CadastroTres } options={ { title: 'Cadastro' } } />
               <Stack.Screen name='CadFuncao' component={ CadFuncao } options={{ title: 'Cadastro' }} />
               <Stack.Screen name='HomePage' component={ HomePage } options={{ title: 'HomePage' }} />
             </>
