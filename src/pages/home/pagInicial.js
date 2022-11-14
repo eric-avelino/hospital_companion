@@ -21,7 +21,8 @@ const PaginaInicial = ({ navigation }) => {
           <Text 
             style={styles.textLink}
             onPress={() => {
-              navigation.navigate('CadFuncao', {uid: convidadoTolken, nome: "Convidado"});
+              // navigation.navigate('CadFuncao', {uid: convidadoTolken, nome: "Convidado"});
+              navigation.navigate('CadastroTres', {uid: convidadoTolken, nome: "Convidado"});
             }} 
             >Entrar como convidado</Text>
           <StatusBar style="auto" />
