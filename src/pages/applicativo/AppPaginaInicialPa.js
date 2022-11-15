@@ -18,34 +18,58 @@ const AppPaginaInicialPa = function ({ route, navigation }) {
     const [acompanhantes, setAcompanhantes] = useState([]);
     const [region, setRegion] = useState({ latitude: 0, longitude: 0, latitudeDelta: 0, longitudeDelta: 0 });
     const adicionarAcompanhante = (acompanhante) => {
+        // ADICIONAR ACOMPANHANTE A LISTA DE ACOMPANHANTES DO PACIENTE
+        // TODO: 
+        // - DEVE OCORRER ACEITAÇÃO DO ACOMPANHANTE
+        // - DEVE SER GERADO UM CONTRAT ATRAVÉS DA TEMPLATE
+        // - OS DOIS PARTIDOS DEVEM ACEITAR O CONTRATO
+        // - SÓ ENTÃO A CONEXÃO DEVE SER CRIADA
         if (firebase.app.length) {
             let id = acompanhante.id;
             let nome = acompanhante.nome;
             const userRef = firebase.auth().currentUser;
-            let acArray = [];
+            const notData = {
+                uid_p: userRef.uid,
+                nome_p: params.username,
+                uid_v: acompanhante.id,
+                nome_v: acompanhante.nome,
+                action: "link"
+            }
             firebase
                 .firestore()
-                .collection("users")
-                .doc(userRef.uid)
-                .get()
-                .then(documentSnapshot => {
-                    let userData = documentSnapshot.data();
-                    console.log(userData['acompanhantes']);
-                    acArray = userData['acompanhantes'];
-                    acArray.push({id, nome});
-                    console.log(acArray);
-                    firebase
-                        .firestore()
-                        .collection("users")
-                        .doc(userRef.uid)
-                        .update({
-                            acompanhantes: acArray
-                        })
-                        .catch((e) => {
-                            alert(e);
-                        }).then(alert("Acompanhante adicionado"));
-                });
-            
+                .collection("notifications")
+                .doc(acompanhante.id)
+                .set(
+                    { notifications: firebase.firestore.FieldValue.arrayUnion(notData) }
+                    // {uid_p: userRef.uid,
+                    // uid_v: acompanhante.id,
+                    // action: "link"}
+                    , { merge: true })
+                .catch((e) => {
+                    alert(e);
+                }).then(alert("Acompanhante adicionado"));
+            // firebase
+            //     .firestore()
+            //     .collection("users")
+            //     .doc(userRef.uid)
+            //     .get()
+            //     .then(documentSnapshot => {
+            //         let userData = documentSnapshot.data();
+            //         console.log(userData['acompanhantes']);
+            //         acArray = userData['acompanhantes'];
+            //         acArray.push({id, nome});
+            //         console.log(acArray);
+            //         firebase
+            //             .firestore()
+            //             .collection("users")
+            //             .doc(userRef.uid)
+            //             .update({
+            //                 acompanhantes: acArray
+            //             })
+            //             .catch((e) => {
+            //                 alert(e);
+            //             }).then(alert("Acompanhante adicionado"));
+            //     });
         }
         console.log("Contratado: " + acompanhante.id + "\nUser: " + acompanhante.nome);
     }
@@ -120,11 +144,11 @@ const AppPaginaInicialPa = function ({ route, navigation }) {
                         data={[
                             { key: 'Página inicial', anchor: '' },
                             { key: 'CHAT', anchor: 'Chat' },
-                            { key: 'Acompanhamentos', anchor: 'Acompanhamentos'},
+                            { key: 'Acompanhamentos', anchor: 'Acompanhamentos' },
                             { key: 'Dados pessoais', anchor: 'DadosPessoais' },
+                            { key: "Notificações", anchor: "Notificacoes" },
                             { key: 'Quem somos', anchor: 'QuemSomosNos' },
                             { key: 'Fale conosco', anchor: '' },
-                            { key: 'Notificações', anchor: '' },
                             { key: 'Sair da conta', anchor: '' }
                         ]}
                         renderItem={({ item }) => <TouchableOpacity style={styles.navItem} onPress={() => item.anchor && navigation.navigate(item.anchor, params)}>

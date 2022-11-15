@@ -72,9 +72,9 @@ const AppPaginaInicialAc = function ({ route, navigation }) {
                             { key: 'CHAT', anchor: 'Chat' },
                             { key: 'Acompanhamentos', anchor: 'Acompanhamentos'},
                             { key: 'Dados pessoais', anchor: 'DadosPessoais'},
+                            { key: "Notificações", anchor: "Notificacoes"},
                             { key: 'Quem somos', anchor: 'QuemSomosNos' },
                             { key: 'Fale conosco', anchor: '' },
-                            { key: 'Notificações', anchor: '' },
                             { key: 'Sair da conta', anchor: '' }
                         ]}
                         renderItem={({ item }) => <TouchableOpacity style={styles.navItem} onPress={() => item.anchor && navigation.navigate(item.anchor, params)}>
