@@ -13,6 +13,7 @@ import HomePage from './homePage';
 import AppPagInicialPa from '../applicativo/AppPaginaInicialPa';
 import AppPagInicialAc from '../applicativo/AppPaginaInicialAc';
 import DadosPessoais from '../applicativo/DadosPessoais';
+import FaleConosco from '../applicativo/FaleConosco';
 import Chat from '../applicativo/Chat';
 import Acompanhamentos from '../applicativo/Acompanhamentos';
 import Notificacoes from '../applicativo/Notificacoes';
@@ -37,6 +38,7 @@ function Home (){
               <Stack.Screen name='AppPagInicialPa' component={ AppPagInicialPa } options={{ title: 'Página Inicial' }} />
               <Stack.Screen name='AppPagInicialAc' component={ AppPagInicialAc } options={{ title: 'Página Inicial' }} />
               <Stack.Screen name='DadosPessoais' component={ DadosPessoais } options={{ title: 'Dados Pessoais' }} />
+              <Stack.Screen name='FaleConosco' component={ FaleConosco } options={{ title: 'Fale Conosco' }} />
               <Stack.Screen name='QuemSomosNos' component={ QuemSomosNos } options={{ title: 'Quem Somos Nós' }} />
               <Stack.Screen name='CadastroUm' component={ CadastroUm } options={ { title: 'Cadastro' } } />
               <Stack.Screen name='CadastroDois' component={ CadastroDois } options={ { title: 'Cadastro' } } />

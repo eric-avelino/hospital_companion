@@ -199,9 +199,9 @@ const AppPaginaInicialPa = function ({ route, navigation }) {
                             </View>
                         </View>}
                 />
-                <TouchableOpacity style={[styles.agendarButton]}>
+                {/* <TouchableOpacity style={[styles.agendarButton]}>
                     <Text style={[{ color: 'white' }, { fontWeight: "bold" }]}>AGENDAR</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         </View>
     );

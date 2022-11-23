@@ -8,14 +8,13 @@ import {firebase} from '../../firebaseConnection';
 
 const AppPaginaInicialAc = function ({ route, navigation }) {
     const params = route.params;
-    const initialRegion = {
-        latitude: 49.2576508,
-        longitude: -123.2639868,
-        latitudeDelta: 100,
-        longitudeDelta: 100,
-    };
+    
+    let initialRegion = {latitude: -23.621759, longitude: -46.5864387, latitudeDelta: 0, longitudeDelta: 0};
     const [region, setRegion] = useState({ latitude: 0, longitude: 0, latitudeDelta: 0, longitudeDelta: 0 });
+    const [markers, setMarkers] = useState('');
     const [pacientes, setPacientes] = useState([]);
+
+
     const getCurrentPosition = async () => {
         let { status } = await Location.requestForegroundPermissionsAsync();
         if (status !== "granted") {
@@ -25,6 +24,7 @@ const AppPaginaInicialAc = function ({ route, navigation }) {
             coords: { latitude, longitude }
         } = await Location.getCurrentPositionAsync();
         setRegion({ latitude, longitude, latitudeDelta: 100, longitudeDelta: 100 });
+        initialRegion = { latitude, longitude, latitudeDelta: 100, longitudeDelta: 100 };
         if (firebase.app.length) {
             const userRef = firebase.auth().currentUser;
             firebase
@@ -49,13 +49,25 @@ const AppPaginaInicialAc = function ({ route, navigation }) {
                     // pacientesArray.push(doc.data()['funcao']);
                 });
                 setPacientes(pacientesArray);
-                console.log(pacientesArray);
+                setMarkers(pacientes.map((paciente) => {
+                    return <Marker
+                        coordinate={{
+                            latitude: paciente.coords['latitude'],
+                            longitude: paciente.coords['longitude']
+                        }}
+                        title={paciente.key}
+                        description={"Paciente"}
+                    />
+                }));
+                console.log("PACIENTES ARRAY: ", pacientesArray);
+                console.log("MARKERS RENDER: " , markers);
             });
         }
     }
     useEffect(() => {
         getCurrentPosition();
     },[]);
+    
     console.log(route.params);
     return (
         <View className={"tela"} style={styles.appTela}>
@@ -74,7 +86,7 @@ const AppPaginaInicialAc = function ({ route, navigation }) {
                             { key: 'Dados pessoais', anchor: 'DadosPessoais'},
                             { key: "Notificações", anchor: "Notificacoes"},
                             { key: 'Quem somos', anchor: 'QuemSomosNos' },
-                            { key: 'Fale conosco', anchor: '' },
+                            { key: 'Fale conosco', anchor: 'FaleConosco' },
                             { key: 'Sair da conta', anchor: '' }
                         ]}
                         renderItem={({ item }) => <TouchableOpacity style={styles.navItem} onPress={() => item.anchor && navigation.navigate(item.anchor, params)}>
@@ -88,14 +100,34 @@ const AppPaginaInicialAc = function ({ route, navigation }) {
                     provider={PROVIDER_GOOGLE}
                     style={styles.map}
                     initialRegion={initialRegion}>
-                        {pacientes.map((paciente) => {
+                        {/* {pacientes.map((paciente) => {
+                            console.log("RENDERIZANDO PACIENTE: " , paciente);
                             <Marker
-                            coordinate={{latitude: paciente.coords['latitude'],
-                                    longitude: paciente.coords['longitude']}}
-                            title={paciente.key}
-                            description={"Paciente"}
+                                coordinate={{
+                                    latitude: paciente.coords['latitude'],
+                                    longitude: paciente.coords['longitude']
+                                }}
+                                title={paciente.key}
+                                description={"Paciente"}
                             />
-                        })}
+                        })} */}
+                        {markers}
+                    {/* <Marker
+                        coordinate={{
+                            latitude: -23.621759,
+                            longitude: -46.5864387
+                        }}
+                        title={"Nome"}
+                        description={"Paciente"}
+                    />
+                    <Marker
+                        coordinate={{
+                            latitude: -30.621759,
+                            longitude: -50.5864387
+                        }}
+                        title={"Nome"}
+                        description={"Paciente"}
+                    /> */}
                 </MapView>
             </View>
         </View>

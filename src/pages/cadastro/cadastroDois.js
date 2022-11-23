@@ -53,16 +53,16 @@ const CadastroDois = ( { navigation, route } ) => {
                         dataNascimento: dataNascimento
                     },
                     { merge: true });
-                navigation.navigate("CadastroTres");
+                // navigation.navigate("CadastroTres");
                 // direct user to correct screen
-                // firebase.firestore().collection('users').doc(userRef.uid).get().then(documentSnapshot=>{ 
-                //     console.log(documentSnapshot.data()["funcao"]);
-                //     if(documentSnapshot.data()["funcao"] == "Paciente"){
-                //         navigation.navigate("AppPagInicialPa", {uid, username});
-                //     }else{
-                //         navigation.navigate("AppPagInicialAc", {uid, username});
-                //     }
-                // })
+                firebase.firestore().collection('users').doc(userRef.uid).get().then(documentSnapshot=>{ 
+                    console.log(documentSnapshot.data()["funcao"]);
+                    if(documentSnapshot.data()["funcao"] == "Paciente"){
+                        navigation.navigate("AppPagInicialPa", {uid, username});
+                    }else{
+                        navigation.navigate("AppPagInicialAc", {uid, username});
+                    }
+                })
             }
             );
         }
